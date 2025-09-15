@@ -7,7 +7,7 @@ class WhatsAppCart {
     constructor() {
         this.items = this.loadFromStorage();
         this.currency = 'USD';
-        this.phoneNumber = '263771234567';
+        this.phoneNumber = '263719625789';
         this.businessName = 'Luxe Hair Studio';
         this.exchangeRate = { USD: 1, ZWL: 850 }; // Sample exchange rates
         this.init();
