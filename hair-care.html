@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Care Guide - Expert Tips & Product Recommendations | Luxe Hair Studio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Complete hair care guide with expert tips for maintaining wigs, extensions, and natural hair. Product recommendations for Zimbabwe climate.">
+    <meta name="keywords" content="hair care Zimbabwe, wig maintenance, hair extension care, natural hair tips, hair products Zimbabwe">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Expert Hair Care Guide | Luxe Hair Studio Zimbabwe">
+    <meta property="og:description" content="Professional hair care tips and product recommendations for wigs, extensions, and natural hair">
+    <meta property="og:image" content="./assets/images/hair-care-featured.jpg">
+    <meta property="og:url" content="https://yourdomain.com/hair-care">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#8B5CF6',
+                            50: '#F5F3FF',
+                            100: '#EDE9FE',
+                            200: '#DDD6FE',
+                            300: '#C4B5FD',
+                            400: '#A78BFA',
+                            500: '#8B5CF6',
+                            600: '#7C3AED',
+                            700: '#6D28D9',
+                            800: '#5B21B6',
+                            900: '#4C1D95',
+                        },
+                        secondary: '#EC4899',
+                        success: '#10B981',
+                        dark: '#1F2937',
+                        gold: '#F59E0B'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link href="./assets/css/custom.css" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="font-sans bg-gray-50" x-data="{ 
+    cartOpen: false, 
+    mobileMenuOpen: false,
+    cart: JSON.parse(localStorage.getItem('whatsappCart')) || [],
+    currency: localStorage.getItem('selectedCurrency') || 'USD',
+    quizStep: 0,
+    quizAnswers: {},
+    activeTab: 'natural',
+    showCalculator: false
+}">
+    
+    <!-- Header (same structure as other pages) -->
+    <header class="bg-white shadow-lg sticky top-0 z-40">
+        <!-- Top Bar -->
+        <div class="bg-primary text-white text-sm py-2 px-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <span>📞 WhatsApp: +263 77 123 4567</span>
+                    <span class="hidden md:inline">🚚 Free Delivery in Harare</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select x-model="currency" class="bg-transparent border-0 text-white text-sm">
+                        <option value="USD">USD</option>
+                        <option value="ZWL">ZWL</option>
+                    </select>
+                    <div class="hidden md:flex space-x-2">
+                        <a href="#" class="hover:text-secondary transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="hover:text-secondary transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.024-.105-.949-.199-2.403.041-3.439.219-.937 1.404-5.965 1.404-5.965s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24c6.624 0 11.99-5.367 11.99-12C24.007 5.367 18.641.001.029 12.017 0z"/></svg>
+                        </a>
+                        <a href="#" class="hover:text-secondary transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Navigation -->
+        <nav class="py-4 px-4 lg:px-8">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary">
+                        Luxe Hair Studio
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="font-medium text-gray-800 hover:text-primary transition-colors">Home</a>
+                    <a href="shop.html" class="font-medium text-gray-800 hover:text-primary transition-colors">Shop</a>
+                    <a href="about.html" class="font-medium text-gray-800 hover:text-primary transition-colors">About</a>
+                    <a href="hair-care.html" class="font-medium text-primary border-b-2 border-primary">Hair Care</a>
+                    <a href="contact.html" class="font-medium text-gray-800 hover:text-primary transition-colors">Contact</a>
+                </div>
+                
+                <!-- Right Side Icons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Cart -->
+                    <button @click="cartOpen = true" 
+                            class="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m2.6 8l-2-8m2 8v4a1 1 0 001 1h8a1 1 0 001-1v-4m-10 0h10"></path>
+                        </svg>
+                        <span x-show="cart.length > 0" 
+                              class="absolute -top-1 -right-1 bg-secondary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                              x-text="cart.length">
+                        </span>
+                    </button>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button @click="mobileMenuOpen = true" 
+                            class="lg:hidden p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white py-4 px-4 lg:px-8 border-b">
+        <div class="container mx-auto">
+            <nav class="flex text-sm text-gray-600">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-800">Hair Care Guide</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-secondary py-20">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                Expert Hair Care Guide
+            </h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+                Master the art of hair care with professional tips, personalized routines, and product recommendations 
+                tailored for Zimbabwe's unique climate.
+            </p>
+            
+            <!-- Quick Actions -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
+                <button @click="quizStep = 1" 
+                        class="bg-white text-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Take Hair Quiz
+                </button>
+                <button @click="showCalculator = true" 
+                        class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105">
+                    Hair Length Calculator
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hair Type Quiz Modal -->
+    <div x-show="quizStep > 0" 
+         x-cloak
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4"
+         @click.away="quizStep = 0">
+        
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-90vh overflow-y-auto" @click.stop>
+            <div class="p-6 border-b flex items-center justify-between">
+                <h2 class="text-2xl font-bold">Hair Type Quiz</h2>
+                <button @click="quizStep = 0" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+            </div>
+            
+            <!-- Quiz Step 1 -->
+            <div x-show="quizStep === 1" class="p-6">
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-sm text-gray-600">Question 1 of 5</span>
+                        <div class="w-32 bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 20%"></div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">What is your natural hair texture?</h3>
+                </div>
+                
+                <div class="space-y-3">
+                    <button @click="quizAnswers.texture = 'straight'; quizStep = 2" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Straight</strong> - Hair lies flat against the scalp with minimal curl
+                    </button>
+                    <button @click="quizAnswers.texture = 'wavy'; quizStep = 2" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Wavy</strong> - Hair has gentle waves and slight volume
+                    </button>
+                    <button @click="quizAnswers.texture = 'curly'; quizStep = 2" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Curly</strong> - Hair forms distinct curls and spirals
+                    </button>
+                    <button @click="quizAnswers.texture = 'coily'; quizStep = 2" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Coily/Kinky</strong> - Hair has tight curls or zigzag patterns
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Quiz Step 2 -->
+            <div x-show="quizStep === 2" class="p-6">
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-sm text-gray-600">Question 2 of 5</span>
+                        <div class="w-32 bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">How would you describe your hair thickness?</h3>
+                </div>
+                
+                <div class="space-y-3">
+                    <button @click="quizAnswers.thickness = 'fine'; quizStep = 3" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Fine</strong> - Individual strands are thin and delicate
+                    </button>
+                    <button @click="quizAnswers.thickness = 'medium'; quizStep = 3" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Medium</strong> - Normal thickness, not too thick or thin
+                    </button>
+                    <button @click="quizAnswers.thickness = 'thick'; quizStep = 3" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Thick</strong> - Individual strands are coarse and strong
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Quiz Step 3 -->
+            <div x-show="quizStep === 3" class="p-6">
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-sm text-gray-600">Question 3 of 5</span>
+                        <div class="w-32 bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">How often does your hair feel oily?</h3>
+                </div>
+                
+                <div class="space-y-3">
+                    <button @click="quizAnswers.oiliness = 'daily'; quizStep = 4" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Daily</strong> - Hair gets oily within 24 hours of washing
+                    </button>
+                    <button @click="quizAnswers.oiliness = 'every-other-day'; quizStep = 4" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Every other day</strong> - Hair gets oily after 2-3 days
+                    </button>
+                    <button @click="quizAnswers.oiliness = 'weekly'; quizStep = 4" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Weekly or less</strong> - Hair rarely feels oily
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Quiz Step 4 -->
+            <div x-show="quizStep === 4" class="p-6">
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-sm text-gray-600">Question 4 of 5</span>
+                        <div class="w-32 bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">What are your main hair concerns?</h3>
+                </div>
+                
+                <div class="space-y-3">
+                    <button @click="quizAnswers.concerns = 'dryness'; quizStep = 5" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Dryness & Damage</strong> - Hair feels dry, brittle, or damaged
+                    </button>
+                    <button @click="quizAnswers.concerns = 'frizz'; quizStep = 5" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Frizz & Unmanageability</strong> - Hair is difficult to style and control
+                    </button>
+                    <button @click="quizAnswers.concerns = 'thinning'; quizStep = 5" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Thinning & Hair Loss</strong> - Noticeable hair loss or thinning
+                    </button>
+                    <button @click="quizAnswers.concerns = 'growth'; quizStep = 5" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Slow Growth</strong> - Hair grows slowly or breaks easily
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Quiz Step 5 -->
+            <div x-show="quizStep === 5" class="p-6">
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-sm text-gray-600">Question 5 of 5</span>
+                        <div class="w-32 bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">How much time do you spend on hair care daily?</h3>
+                </div>
+                
+                <div class="space-y-3">
+                    <button @click="quizAnswers.time = 'minimal'; quizStep = 6" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Minimal (5-10 minutes)</strong> - Quick wash and go routine
+                    </button>
+                    <button @click="quizAnswers.time = 'moderate'; quizStep = 6" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Moderate (15-30 minutes)</strong> - Basic styling and care
+                    </button>
+                    <button @click="quizAnswers.time = 'extensive'; quizStep = 6" 
+                            class="w-full p-4 text-left border rounded-lg hover:border-primary hover:bg-primary hover:bg-opacity-10 transition-colors">
+                        <strong>Extensive (30+ minutes)</strong> - Detailed care and styling routine
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Quiz Results -->
+            <div x-show="quizStep === 6" class="p-6">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">✨</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Your Personalized Hair Care Plan</h3>
+                    <p class="text-gray-600">Based on your answers, here's what we recommend:</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-primary mb-2">Your Hair Profile</h4>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div><strong>Texture:</strong> <span x-text="quizAnswers.texture"></span></div>
+                            <div><strong>Thickness:</strong> <span x-text="quizAnswers.thickness"></span></div>
+                            <div><strong>Oiliness:</strong> <span x-text="quizAnswers.oiliness"></span></div>
+                            <div><strong>Main Concern:</strong> <span x-text="quizAnswers.concerns"></span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-lg">
+                        <h4 class="font-semibold text-primary mb-2">Recommended Routine</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Wash 2-3 times per week with sulfate-free shampoo</li>
+                            <li>• Deep condition weekly for moisture</li>
+                            <li>• Use leave-in conditioner for daily protection</li>
+                            <li>• Apply hair oil to ends 2-3 times per week</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-success bg-opacity-10 p-4 rounded-lg">
+                        <h4 class="font-semibold text-success mb-2">Recommended Products</h4>
+                        <p class="text-sm">Our Luxe Hair Care Kit is perfect for your hair type. It includes all the essentials for your personalized routine.</p>
+                    </div>
+                </div>
+                
+                <div class="flex gap-4 mt-6">
+                    <button @click="quizStep = 0" 
+                            class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                        Close
+                    </button>
+                    <a href="shop.html?category=care" 
+                       class="flex-1 bg-primary text-white py-3 rounded-lg text-center hover:bg-primary-600 transition-colors">
+                        Shop Products
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hair Length Calculator Modal -->
+    <div x-show="showCalculator" 
+         x-cloak
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4"
+         @click.away="showCalculator = false">
+        
+        <div class="bg-white rounded-2xl max-w-lg w-full" @click.stop>
+            <div class="p-6 border-b flex items-center justify-between">
+                <h2 class="text-2xl font-bold">Hair Length Calculator</h2>
+                <button @click="showCalculator = false" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+            </div>
+            
+            <div class="p-6" x-data="{ currentLength: 16, targetLength: 20 }">
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Current Hair Length</label>
+                        <input type="range" 
+                               min="10" 
+                               max="30" 
+                               x-model="currentLength"
+                               class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-sm text-gray-600 mt-1">
+                            <span>10"</span>
+                            <span class="font-semibold" x-text="currentLength + '&quot;'"></span>
+                            <span>30"</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Desired Hair Length</label>
+                        <input type="range" 
+                               min="10" 
+                               max="30" 
+                               x-model="targetLength"
+                               class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-sm text-gray-600 mt-1">
+                            <span>10"</span>
+                            <span class="font-semibold" x-text="targetLength + '&quot;'"></span>
+                            <span>30"</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Visual representation -->
+                    <div class="bg-gray-50 p-4 rounded-lg text-center">
+                        <div class="relative mx-auto w-32">
+                            <!-- Head -->
+                            <div class="w-16 h-16 bg-pink-200 rounded-full mx-auto mb-2"></div>
+                            <!-- Current hair -->
+                            <div class="bg-yellow-600 mx-auto rounded-b-lg transition-all duration-300" 
+                                 :style="`width: ${16 + (currentLength - 10) * 2}px; height: ${currentLength * 3}px`"></div>
+                            <!-- Target hair (overlay) -->
+                            <div class="bg-primary bg-opacity-30 mx-auto rounded-b-lg absolute transition-all duration-300" 
+                                 :style="`width: ${16 + (targetLength - 10) * 2}px; height: ${targetLength * 3}px; top: 72px; left: 50%; transform: translateX(-50%)`"
+                                 x-show="targetLength > currentLength"></div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <p class="text-sm text-gray-600" x-show="targetLength > currentLength">
+                                You need <strong x-text="(targetLength - currentLength)"></strong> inches of additional length
+                            </p>
+                            <p class="text-sm text-gray-600" x-show="targetLength <= currentLength">
+                                Your current length meets your target!
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Recommendations -->
+                    <div class="bg-primary bg-opacity-10 p-4 rounded-lg" x-show="targetLength > currentLength">
+                        <h4 class="font-semibold text-primary mb-2">Our Recommendations</h4>
+                        <div class="space-y-2 text-sm">
+                            <p>• <strong>Hair Extensions:</strong> Add instant length with clip-ins</p>
+                            <p>• <strong>Sew-in Weave:</strong> Long-lasting length solution</p>
+                            <p>• <strong>Wigs:</strong> Versatile option for dramatic length</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex gap-4 mt-6">
+                    <button @click="showCalculator = false" 
+                            class="flex-1 bg-gray-100 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                        Close
+                    </button>
+                    <a href="shop.html" 
+                       class="flex-1 bg-primary text-white py-3 rounded-lg text-center hover:bg-primary-600 transition-colors">
+                        Shop Solutions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hair Care Tabs -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Complete Hair Care Guide</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Expert advice for every hair type and style preference
+                </p>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="100">
+                <button @click="activeTab = 'natural'" 
+                        class="px-6 py-3 rounded-full font-semibold transition-colors"
+                        :class="activeTab === 'natural' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'">
+                    Natural Hair
+                </button>
+                <button @click="activeTab = 'wigs'" 
+                        class="px-6 py-3 rounded-full font-semibold transition-colors"
+                        :class="activeTab === 'wigs' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'">
+                    Wigs & Toppers
+                </button>
+                <button @click="activeTab = 'extensions'" 
+                        class="px-6 py-3 rounded-full font-semibold transition-colors"
+                        :class="activeTab === 'extensions' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'">
+                    Extensions
+                </button>
+                <button @click="activeTab = 'seasonal'" 
+                        class="px-6 py-3 rounded-full font-semibold transition-colors"
+                        :class="activeTab === 'seasonal' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'">
+                    Seasonal Care
+                </button>
+            </div>
+            
+            <!-- Natural Hair Tab -->
+            <div x-show="activeTab === 'natural'" class="grid lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Natural Hair Care Essentials</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Washing -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-primary mb-3 flex items-center">
+                                <span class="mr-2">🧴</span> Proper Washing Technique
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Pre-poo with oil 30 minutes before washing</li>
+                                <li>• Use sulfate-free shampoo only on scalp</li>
+                                <li>• Focus conditioner on mid-lengths and ends</li>
+                                <li>• Rinse with cool water to seal cuticles</li>
+                                <li>• Wash 1-2 times per week maximum</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Moisturizing -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-primary mb-3 flex items-center">
+                                <span class="mr-2">💧</span> The LOC Method
+                            </h4>
+                            <div class="space-y-3 text-gray-600">
+                                <div><strong>L</strong>eave-in conditioner - Apply to damp hair</div>
+                                <div><strong>O</strong>il - Seal with natural oils like coconut or argan</div>
+                                <div><strong>C</strong>ream - Finish with a moisturizing cream</div>
+                                <p class="text-sm italic">Apply this routine 2-3 times per week for optimal moisture retention.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Protective Styling -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-primary mb-3 flex items-center">
+                                <span class="mr-2">🛡️</span> Protective Styling
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Braids, twists, or buns to minimize manipulation</li>
+                                <li>• Satin/silk pillowcases or bonnets for sleep</li>
+                                <li>• Avoid tight styles that cause tension</li>
+                                <li>• Take breaks between protective styles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <!-- Video placeholder -->
+                    <div class="h-64 bg-gradient-to-br from-purple-200 to-pink-200 rounded-lg mb-6 flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <span class="text-4xl">▶️</span>
+                            <p class="mt-2 font-medium">Natural Hair Care Tutorial</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Zimbabwe-specific tips -->
+                    <div class="bg-success bg-opacity-10 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold text-success mb-3 flex items-center">
+                            <span class="mr-2">🌍</span> Zimbabwe Climate Tips
+                        </h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• Use heavier oils during dry season (May-October)</li>
+                            <li>• Increase washing frequency during rainy season</li>
+                            <li>• UV protection is crucial - use leave-in with SPF</li>
+                            <li>• Drink extra water during hot months for internal hydration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Wigs Tab -->
+            <div x-show="activeTab === 'wigs'" class="grid lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Wig Care & Maintenance</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Daily Care -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-primary mb-3 flex items-center">
+                                <span class="mr-2">✨</span> Daily Maintenance
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Gently brush from ends to roots</li>
+                                <li>• Use wide-tooth comb for wet styling</li>
+                                <li>• Store on mannequin head or wig stand</li>
+                                <li>• Avoid sleeping in your wig</li>
+                                <li>• Keep away from heat sources</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Washing Wigs -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-primary mb-3 flex items-center">
+                                <span class="mr-2">🛁</span> Washing Your Wig
+                            </h4>
+                            <ol class="space-y-2 text-gray-600">
+                                <li>1. Detangle gently before washing</li>
+                                <li>2. Use cold water and sulfate-free shampoo</li>
+                                <li>3. Soak for 10-15 minutes, don't rub</li>
+                                <li>4. Rinse thoroughly with cool water</li>
+                                <li>5. Apply conditioner to mid-lengths and ends</li>
+                                <li>6. Air dry on wig stand - never use heat</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Styling Tips -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-primary mb-3 flex items-center">
+                                <span class="mr-2">💇‍♀️</span> Styling Guidelines
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Use heat protectant before any heat styling</li>
+                                <li>• Keep heat tools below 300°F (150°C)</li>
+                                <li>• Trim split ends regularly</li>
+                                <li>• Use wig-specific products for best results</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <!-- Wig types guide -->
+                    <div class="h-64 bg-gradient-to-br from-blue-200 to-teal-200 rounded-lg mb-6 flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <span class="text-4xl">👩‍🦱</span>
+                            <p class="mt-2 font-medium">Wig Styling Guide</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Wig lifespan -->
+                    <div class="bg-gold bg-opacity-10 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold text-gold mb-3 flex items-center">
+                            <span class="mr-2">⏰</span> Wig Lifespan Guide
+                        </h4>
+                        <div class="space-y-3 text-gray-600">
+                            <div><strong>Synthetic Wigs:</strong> 3-6 months with daily wear</div>
+                            <div><strong>Human Hair Wigs:</strong> 6-12 months with proper care</div>
+                            <div><strong>Glueless Wigs:</strong> 8-15 months (less manipulation)</div>
+                            <div><strong>Lace Front Wigs:</strong> 6-10 months depending on installation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Extensions Tab -->
+            <div x-show="activeTab === 'extensions'" class="grid lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Hair Extension Care</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Washing Extensions -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-primary mb-3 flex items-center">
+                                <span class="mr-2">💦</span> Washing Routine
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Wash every 2-3 weeks (or as needed)</li>
+                                <li>• Use lukewarm water to prevent tangling</li>
+                                <li>• Apply shampoo from roots to ends gently</li>
+                                <li>• Deep condition weekly for moisture</li>
+                                <li>• Air dry when possible to prevent damage</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Detangling -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-primary mb-3 flex items-center">
+                                <span class="mr-2">🪄</span> Detangling Process
+                            </h4>
+                            <ol class="space-y-2 text-gray-600">
+                                <li>1. Apply leave-in conditioner or detangling spray</li>
+                                <li>2. Start from the ends and work upward</li>
+                                <li>3. Use a wide-tooth comb or paddle brush</li>
+                                <li>4. Work in small sections to avoid breakage</li>
+                                <li>5. Be extra gentle around attachment points</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Sleeping -->
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="text-lg font-semibold text-primary mb-3 flex items-center">
+                                <span class="mr-2">🌙</span> Nighttime Care
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Braid loosely or tie in a low ponytail</li>
+                                <li>• Use a silk or satin pillowcase</li>
+                                <li>• Apply a small amount of oil to ends</li>
+                                <li>• Avoid tight hair ties that cause breakage</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <!-- Extension types -->
+                    <div class="h-64 bg-gradient-to-br from-green-200 to-emerald-200 rounded-lg mb-6 flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <span class="text-4xl">💇‍♀️</span>
+                            <p class="mt-2 font-medium">Extension Care Tutorial</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Installation tips -->
+                    <div class="bg-secondary bg-opacity-10 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold text-secondary mb-3 flex items-center">
+                            <span class="mr-2">🔧</span> Installation Tips
+                        </h4>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• <strong>Clip-ins:</strong> Remove daily to prevent tension</li>
+                            <li>• <strong>Sew-ins:</strong> Professional installation recommended</li>
+                            <li>• <strong>Tape-ins:</strong> Replace tape every 6-8 weeks</li>
+                            <li>• <strong>Micro-links:</strong> Tighten every 6-8 weeks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seasonal Care Tab -->
+            <div x-show="activeTab === 'seasonal'" class="grid lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Seasonal Hair Care for Zimbabwe</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Dry Season -->
+                        <div class="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-400">
+                            <h4 class="text-lg font-semibold text-orange-700 mb-3 flex items-center">
+                                <span class="mr-2">☀️</span> Dry Season (May - October)
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Increase deep conditioning to twice weekly</li>
+                                <li>• Use heavier oils like castor or olive oil</li>
+                                <li>• Protect from UV rays with leave-in SPF</li>
+                                <li>• Stay hydrated - drink more water</li>
+                                <li>• Use humidifier indoors if possible</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Rainy Season -->
+                        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
+                            <h4 class="text-lg font-semibold text-blue-700 mb-3 flex items-center">
+                                <span class="mr-2">🌧️</span> Rainy Season (November - April)
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Wash more frequently due to humidity</li>
+                                <li>• Use lighter oils to prevent buildup</li>
+                                <li>• Anti-frizz products become essential</li>
+                                <li>• Protective styles work best in humidity</li>
+                                <li>• Ensure hair is completely dry before styling</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Year-round -->
+                        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-400">
+                            <h4 class="text-lg font-semibold text-green-700 mb-3 flex items-center">
+                                <span class="mr-2">🌱</span> Year-Round Essentials
+                            </h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li>• Monthly protein treatments for strength</li>
+                                <li>• Trim every 8-12 weeks for healthy ends</li>
+                                <li>• Scalp massages to promote blood flow</li>
+                                <li>• Regular exercise and balanced diet</li>
+                                <li>• Consistent nighttime hair routine</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <!-- Climate chart -->
+                    <div class="h-64 bg-gradient-to-br from-yellow-200 to-green-200 rounded-lg mb-6 flex items-center justify-center">
+                        <div class="text-center text-gray-500">
+                            <span class="text-4xl">🌍</span>
+                            <p class="mt-2 font-medium">Zimbabwe Climate Guide</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Monthly breakdown -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">Monthly Hair Care Calendar</h4>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="space-y-2">
+                                <div><strong>Jan-Mar:</strong> High humidity care</div>
+                                <div><strong>Apr-May:</strong> Transition to dry season</div>
+                                <div><strong>Jun-Aug:</strong> Maximum moisture retention</div>
+                            </div>
+                            <div class="space-y-2">
+                                <div><strong>Sep-Oct:</strong> Continue dry season care</div>
+                                <div><strong>Nov-Dec:</strong> Prepare for humidity</div>
+                                <div><strong>Year-round:</strong> Consistent routine</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Recommendations -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Recommended Products</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Professional-grade products curated for Zimbabwe's climate and hair needs
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <div class="h-64 bg-gradient-to-br from-purple-200 to-pink-200">
+                            <div class="absolute inset-0 flex items-center justify-center text-gray-500">
+                                <span class="text-6xl">🧴</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-success text-white px-2 py-1 rounded-full text-sm font-semibold">BEST SELLER</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Luxe Hair Care Complete Kit</h3>
+                        <p class="text-gray-600 mb-4">Everything you need for healthy hair maintenance.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-primary">$89</span>
+                            <div class="flex text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        
+                        <button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <div class="h-64 bg-gradient-to-br from-green-200 to-emerald-200">
+                            <div class="absolute inset-0 flex items-center justify-center text-gray-500">
+                                <span class="text-6xl">🌿</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-green-500 text-white px-2 py-1 rounded-full text-sm font-semibold">NATURAL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Argan Oil Hair Treatment</h3>
+                        <p class="text-gray-600 mb-4">Pure argan oil for deep nourishment and shine.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-primary">$35</span>
+                            <div class="flex text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        
+                        <button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative">
+                        <div class="h-64 bg-gradient-to-br from-blue-200 to-teal-200">
+                            <div class="absolute inset-0 flex items-center justify-center text-gray-500">
+                                <span class="text-6xl">💧</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-blue-500 text-white px-2 py-1 rounded-full text-sm font-semibold">HYDRATING</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Deep Moisturizing Mask</h3>
+                        <p class="text-gray-600 mb-4">Intensive treatment for dry and damaged hair.</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-2xl font-bold text-primary">$28</span>
+                            <div class="flex text-yellow-400">⭐⭐⭐⭐⭐</div>
+                        </div>
+                        
+                        <button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-600 transition-colors">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="shop.html?category=care" 
+                   class="inline-flex items-center bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-primary-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Shop All Hair Care Products
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Get answers to common hair care questions from our experts
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto" x-data="{ openFaq: null }">
+                <!-- FAQ 1 -->
+                <div class="mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <button @click="openFaq = openFaq === 1 ? null : 1" 
+                            class="w-full text-left p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-800">How often should I wash my natural hair?</h3>
+                            <svg class="w-5 h-5 transform transition-transform" :class="openFaq === 1 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div x-show="openFaq === 1" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-screen" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 max-h-screen" x-transition:leave-end="opacity-0 max-h-0" class="px-6 pb-6 bg-gray-50 rounded-b-lg overflow-hidden">
+                        <p class="text-gray-600">
+                            For most natural hair types, washing 1-2 times per week is ideal. Over-washing can strip natural oils, 
+                            leading to dryness. In Zimbabwe's climate, you may need to adjust frequency based on the season - 
+                            wash more often during humid months and less during dry season.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <button @click="openFaq = openFaq === 2 ? null : 2" 
+                            class="w-full text-left p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-800">How long do hair extensions typically last?</h3>
+                            <svg class="w-5 h-5 transform transition-transform" :class="openFaq === 2 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div x-show="openFaq === 2" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-screen" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 max-h-screen" x-transition:leave-end="opacity-0 max-h-0" class="px-6 pb-6 bg-gray-50 rounded-b-lg overflow-hidden">
+                        <p class="text-gray-600">
+                            High-quality human hair extensions can last 6-12 months with proper care. Clip-ins typically last longer 
+                            since they're removed daily. Sew-ins should be reinstalled every 6-8 weeks. The lifespan depends on 
+                            hair quality, maintenance routine, and styling frequency.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <button @click="openFaq = openFaq === 3 ? null : 3" 
+                            class="w-full text-left p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-800">Can I color my hair extensions?</h3>
+                            <svg class="w-5 h-5 transform transition-transform" :class="openFaq === 3 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div x-show="openFaq === 3" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-screen" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 max-h-screen" x-transition:leave-end="opacity-0 max-h-0" class="px-6 pb-6 bg-gray-50 rounded-b-lg overflow-hidden">
+                        <p class="text-gray-600">
+                            Yes, 100% human hair extensions can be colored, but we recommend professional coloring. 
+                            Virgin hair takes color best. Always do a strand test first and use quality products. 
+                            Note that bleaching can damage the hair and reduce its lifespan.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <button @click="openFaq = openFaq === 4 ? null : 4" 
+                            class="w-full text-left p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-semibold text-gray-800">What's the difference between HD lace and regular lace wigs?</h3>
+                            <svg class="w-5 h-5 transform transition-transform" :class="openFaq === 4 ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <div x-show="openFaq === 4" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-screen" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 max-h-screen" x-transition:leave-end="opacity-0 max-h-0" class="px-6 pb-6 bg-gray-50 rounded-b-lg overflow-hidden">
+                        <p class="text-gray-600">
+                            HD (High Definition) lace is thinner and more transparent than regular lace, creating a more natural 
+                            hairline that virtually disappears when applied. It's perfect for those wanting the most realistic look, 
+                            though it requires more careful handling due to its delicate nature.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6" data-aos="fade-up">
+                Get Weekly Hair Care Tips
+            </h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Subscribe to receive personalized hair care advice, seasonal tips, and exclusive product recommendations.
+            </p>
+            
+            <div class="max-w-md mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" 
+                           placeholder="Enter your email address" 
+                           class="flex-1 px-6 py-4 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
+                    <button class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                        Subscribe
+                    </button>
+                </div>
+                <p class="text-sm text-purple-100 mt-4">
+                    Join 5000+ subscribers. No spam, unsubscribe anytime.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer (same as other pages) -->
+    <footer class="bg-dark text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Luxe Hair Studio</h3>
+                    <p class="text-gray-300 mb-4">Zimbabwe's premier destination for luxury hair extensions and wigs.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.024-.105-.949-.199-2.403.041-3.439.219-.937 1.404-5.965 1.404-5.965s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24c6.624 0 11.99-5.367 11.99-12C24.007 5.367 18.641.001.029 12.017 0z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="shop.html" class="text-gray-300 hover:text-white transition-colors">Shop</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="hair-care.html" class="text-gray-300 hover:text-white transition-colors">Hair Care Guide</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Glueless Wigs</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Hair Bundles</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Lace Frontals</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Closures</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Hair Care Products</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <span class="mr-2">📍</span>
+                            <span class="text-gray-300">123 Hair Street, Harare, Zimbabwe</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-2">📞</span>
+                            <span class="text-gray-300">+263 77 123 4567</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="mr-2">✉️</span>
+                            <span class="text-gray-300">hello@luxehairstudio.zw</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-300">
+                    © 2024 Luxe Hair Studio. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Floating Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/263771234567" 
+           class="bg-success text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 transform hover:scale-110 animate-pulse">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+        </a>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/whatsapp-cart.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+    </script>
+</body>
+</html>

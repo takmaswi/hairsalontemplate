@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Premium Hair Extensions & Wigs | Luxe Hair Studio Zimbabwe</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Shop our complete collection of premium hair extensions, glueless wigs, bundles, and frontals. Best prices in Zimbabwe with same-day Harare delivery.">
+    <meta name="keywords" content="hair shop Zimbabwe, buy wigs online, hair bundles Harare, glueless wigs for sale, HD lace frontals Zimbabwe">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Shop Premium Hair Extensions & Wigs | Luxe Hair Studio">
+    <meta property="og:description" content="Shop our complete collection of premium hair extensions, glueless wigs, bundles, and frontals">
+    <meta property="og:image" content="./assets/images/shop-featured.jpg">
+    <meta property="og:url" content="https://yourdomain.com/shop">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#8B5CF6',
+                            50: '#F5F3FF',
+                            100: '#EDE9FE',
+                            200: '#DDD6FE',
+                            300: '#C4B5FD',
+                            400: '#A78BFA',
+                            500: '#8B5CF6',
+                            600: '#7C3AED',
+                            700: '#6D28D9',
+                            800: '#5B21B6',
+                            900: '#4C1D95',
+                        },
+                        secondary: '#EC4899',
+                        success: '#10B981',
+                        dark: '#1F2937',
+                        gold: '#F59E0B'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link href="./assets/css/custom.css" rel="stylesheet">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="font-sans bg-gray-50" x-data="{ 
+    cartOpen: false, 
+    mobileMenuOpen: false,
+    filtersOpen: false,
+    quickViewOpen: false,
+    cart: JSON.parse(localStorage.getItem('whatsappCart')) || [],
+    currency: localStorage.getItem('selectedCurrency') || 'USD',
+    currentProduct: null,
+    filters: {
+        category: 'all',
+        priceRange: [0, 1000],
+        length: 'all',
+        texture: 'all',
+        inStock: false
+    },
+    sortBy: 'featured',
+    viewMode: 'grid', // 'grid' or 'list'
+    get visibleProductCount() {
+        if (this.filters.category === 'all') return 3;
+        return 1; // Since each filter shows only 1 product
+    }
+}">
+    
+    <!-- Header (same as index.html but simplified) -->
+    <header class="bg-white shadow-lg sticky top-0 z-40">
+        <!-- Top Bar -->
+        <div class="bg-primary text-white text-sm py-2 px-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <span>📞 WhatsApp: +263 77 123 4567</span>
+                    <span class="hidden md:inline">🚚 Free Delivery in Harare</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select x-model="currency" class="bg-transparent border-0 text-white text-sm">
+                        <option value="USD">USD</option>
+                        <option value="ZWL">ZWL</option>
+                    </select>
+                    <div class="hidden md:flex space-x-2">
+                        <a href="#" class="hover:text-secondary transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-secondary transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.024-.105-.949-.199-2.403.041-3.439.219-.937 1.404-5.965 1.404-5.965s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.347-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24c6.624 0 11.99-5.367 11.99-12C24.007 5.367 18.641.001.029 12.017 0z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-secondary transition-colors">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Navigation -->
+        <nav class="py-4 px-4 lg:px-8">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary">
+                        Luxe Hair Studio
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="font-medium text-gray-800 hover:text-primary transition-colors">Home</a>
+                    <a href="shop.html" class="font-medium text-primary border-b-2 border-primary">Shop</a>
+                    <a href="about.html" class="font-medium text-gray-800 hover:text-primary transition-colors">About</a>
+                    <a href="hair-care.html" class="font-medium text-gray-800 hover:text-primary transition-colors">Hair Care</a>
+                    <a href="contact.html" class="font-medium text-gray-800 hover:text-primary transition-colors">Contact</a>
+                </div>
+                
+                <!-- Right Side Icons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search -->
+                    <div class="relative">
+                        <input type="text" 
+                               placeholder="Search products..." 
+                               class="hidden md:block w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                               x-data
+                               @input.debounce.300ms="$dispatch('search', $event.target.value)">
+                        <svg class="hidden md:block absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Cart -->
+                    <button @click="cartOpen = true" 
+                            class="relative p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m2.6 8l-2-8m2 8v4a1 1 0 001 1h8a1 1 0 001-1v-4m-10 0h10"></path>
+                        </svg>
+                        <span x-show="cart.length > 0" 
+                              class="absolute -top-1 -right-1 bg-secondary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                              x-text="cart.length">
+                        </span>
+                    </button>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button @click="mobileMenuOpen = true" 
+                            class="lg:hidden p-2 rounded-full hover:bg-gray-100 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-white py-4 px-4 lg:px-8 border-b">
+        <div class="container mx-auto">
+            <nav class="flex text-sm text-gray-600">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <span class="mx-2">/</span>
+                <span class="text-gray-800">Shop</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Shop Header -->
+    <section class="bg-gradient-to-r from-primary to-secondary py-16">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4" data-aos="fade-up">
+                Premium Hair Collection
+            </h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Discover our complete range of luxury hair extensions, wigs, and care products
+            </p>
+            
+            <!-- Quick Category Links -->
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <button @click="filters.category = 'wigs'; $dispatch('filter-change')" 
+                        class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-full transition-colors">
+                    Glueless Wigs
+                </button>
+                <button @click="filters.category = 'bundles'; $dispatch('filter-change')" 
+                        class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-full transition-colors">
+                    Hair Bundles
+                </button>
+                <button @click="filters.category = 'frontals'; $dispatch('filter-change')" 
+                        class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-full transition-colors">
+                    Lace Frontals
+                </button>
+                <button @click="filters.category = 'closures'; $dispatch('filter-change')" 
+                        class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-full transition-colors">
+                    Closures
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Content -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <!-- Filters Sidebar -->
+            <aside class="lg:w-1/4">
+                <!-- Mobile Filter Toggle -->
+                <button @click="filtersOpen = !filtersOpen" 
+                        class="lg:hidden w-full bg-white p-4 rounded-lg shadow-lg mb-4 flex items-center justify-between">
+                    <span class="font-semibold">Filters & Sort</span>
+                    <svg class="w-5 h-5 transform transition-transform" :class="filtersOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                
+                <div class="space-y-6" :class="filtersOpen ? 'block' : 'hidden lg:block'">
+                    
+                    <!-- Category Filter -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="font-semibold text-gray-800 mb-4">Category</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="category" value="all" x-model="filters.category" class="text-primary">
+                                <span class="ml-2 text-gray-700">All Products</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="category" value="wigs" x-model="filters.category" class="text-primary">
+                                <span class="ml-2 text-gray-700">Wigs</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="category" value="bundles" x-model="filters.category" class="text-primary">
+                                <span class="ml-2 text-gray-700">Hair Bundles</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="category" value="frontals" x-model="filters.category" class="text-primary">
+                                <span class="ml-2 text-gray-700">Lace Frontals</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="category" value="closures" x-model="filters.category" class="text-primary">
+                                <span class="ml-2 text-gray-700">Closures</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Price Range Filter -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="font-semibold text-gray-800 mb-4">Price Range</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">$0</span>
+                                <span class="text-sm text-gray-600">$1000+</span>
+                            </div>
+                            <input type="range" 
+                                   min="0" 
+                                   max="1000" 
+                                   x-model="filters.priceRange[1]"
+                                   class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            <div class="text-center">
+                                <span class="text-primary font-semibold" x-text="`Up to $${filters.priceRange[1]}`"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hair Length Filter -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="font-semibold text-gray-800 mb-4">Hair Length</h3>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button @click="filters.length = 'all'; $dispatch('filter-change')" 
+                                    class="px-3 py-2 text-sm border rounded transition-colors"
+                                    :class="filters.length === 'all' ? 'border-primary text-primary bg-primary bg-opacity-10' : 'border-gray-300 text-gray-700 hover:border-primary'">
+                                All
+                            </button>
+                            <button @click="filters.length = '16'; $dispatch('filter-change')" 
+                                    class="px-3 py-2 text-sm border rounded transition-colors"
+                                    :class="filters.length === '16' ? 'border-primary text-primary bg-primary bg-opacity-10' : 'border-gray-300 text-gray-700 hover:border-primary'">
+                                16"
+                            </button>
+                            <button @click="filters.length = '18'; $dispatch('filter-change')" 
+                                    class="px-3 py-2 text-sm border rounded transition-colors"
+                                    :class="filters.length === '18' ? 'border-primary text-primary bg-primary bg-opacity-10' : 'border-gray-300 text-gray-700 hover:border-primary'">
+                                18"
+                            </button>
+                            <button @click="filters.length = '20'; $dispatch('filter-change')" 
+                                    class="px-3 py-2 text-sm border rounded transition-colors"
+                                    :class="filters.length === '20' ? 'border-primary text-primary bg-primary bg-opacity-10' : 'border-gray-300 text-gray-700 hover:border-primary'">
+                                20"
+                            </button>
+                            <button @click="filters.length = '22'; $dispatch('filter-change')" 
+                                    class="px-3 py-2 text-sm border rounded transition-colors"
+                                    :class="filters.length === '22' ? 'border-primary text-primary bg-primary bg-opacity-10' : 'border-gray-300 text-gray-700 hover:border-primary'">
+                                22"
+                            </button>
+                            <button @click="filters.length = '24'; $dispatch('filter-change')" 
+                                    class="px-3 py-2 text-sm border rounded transition-colors"
+                                    :class="filters.length === '24' ? 'border-primary text-primary bg-primary bg-opacity-10' : 'border-gray-300 text-gray-700 hover:border-primary'">
+                                24"
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Texture Filter -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="font-semibold text-gray-800 mb-4">Hair Texture</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="texture" value="all" x-model="filters.texture" class="text-primary">
+                                <span class="ml-2 text-gray-700">All Textures</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="texture" value="straight" x-model="filters.texture" class="text-primary">
+                                <span class="ml-2 text-gray-700">Straight</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="texture" value="body-wave" x-model="filters.texture" class="text-primary">
+                                <span class="ml-2 text-gray-700">Body Wave</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="texture" value="deep-wave" x-model="filters.texture" class="text-primary">
+                                <span class="ml-2 text-gray-700">Deep Wave</span>
+                            </label>
+                            <label class="flex items-center cursor-pointer">
+                                <input type="radio" name="texture" value="curly" x-model="filters.texture" class="text-primary">
+                                <span class="ml-2 text-gray-700">Curly</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="font-semibold text-gray-800 mb-4">Availability</h3>
+                        <label class="flex items-center cursor-pointer">
+                            <input type="checkbox" x-model="filters.inStock" class="text-primary">
+                            <span class="ml-2 text-gray-700">In Stock Only</span>
+                        </label>
+                    </div>
+
+                    <!-- Clear Filters -->
+                    <button @click="filters = { category: 'all', priceRange: [0, 1000], length: 'all', texture: 'all', inStock: false }; $dispatch('filter-change')" 
+                            class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg hover:bg-gray-200 transition-colors">
+                        Clear All Filters
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Products Section -->
+            <main class="lg:w-3/4">
+                
+                <!-- Toolbar -->
+                <div class="bg-white p-4 rounded-lg shadow-lg mb-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        
+                        <!-- Results Count -->
+                        <div class="text-gray-600">
+                            <span class="font-semibold" x-text="visibleProductCount"></span> products found
+                        </div>
+                        
+                        <!-- View Mode & Sort -->
+                        <div class="flex items-center space-x-4">
+                            
+                            <!-- View Mode Toggle -->
+                            <div class="flex border rounded-lg overflow-hidden">
+                                <button @click="viewMode = 'grid'" 
+                                        class="p-2 transition-colors"
+                                        :class="viewMode === 'grid' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                                    </svg>
+                                </button>
+                                <button @click="viewMode = 'list'" 
+                                        class="p-2 transition-colors"
+                                        :class="viewMode === 'list' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <!-- Sort Dropdown -->
+                            <select x-model="sortBy" 
+                                    class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest First</option>
+                                <option value="rating">Best Rated</option>
+                                <option value="bestseller">Best Sellers</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="grid gap-6" 
+                     :class="viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3' : 'grid-cols-1'">
+                    
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 product-card"
+                         :class="viewMode === 'list' ? 'flex' : ''"
+                         x-show="filters.category === 'all' || filters.category === 'wigs'"
+                         data-category="wigs" data-texture="straight" data-length="16,18,20" data-price="299">
+                        
+                        <div class="relative overflow-hidden" 
+                             :class="viewMode === 'list' ? 'w-1/3' : ''">
+                            <div class="aspect-w-1 aspect-h-1 bg-gradient-to-br from-purple-200 to-pink-200">
+                                <!-- Product image placeholder -->
+                                <div class="flex items-center justify-center text-gray-500 h-80">
+                                    <span class="text-6xl">👩‍🦱</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Badges -->
+                            <div class="absolute top-4 left-4 flex flex-col gap-2">
+                                <span class="badge sale">25% OFF</span>
+                                <span class="badge new">NEW</span>
+                            </div>
+                            
+                            <!-- Quick Actions -->
+                            <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-50 transition-colors">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </button>
+                                <button @click="quickViewOpen = true; currentProduct = 'wig-001'" 
+                                        class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-50 transition-colors">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </button>
+                                <button class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-50 transition-colors">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6" :class="viewMode === 'list' ? 'w-2/3 flex flex-col justify-between' : ''">
+                            <!-- Rating -->
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
+                                <span class="text-gray-600 text-sm ml-1">(127)</span>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">HD Lace Glueless Wig - Straight</h3>
+                            <p class="text-gray-600 mb-4" :class="viewMode === 'list' ? 'mb-6' : ''">
+                                Premium HD lace glueless wig with natural hairline. 180% density Brazilian straight hair.
+                            </p>
+                            
+                            <!-- Variants -->
+                            <div class="mb-4" :class="viewMode === 'list' ? 'mb-6' : ''">
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="text-sm text-gray-500">Lengths:</span>
+                                    <div class="flex gap-1">
+                                        <button class="px-2 py-1 text-xs border rounded hover:border-primary transition-colors">16"</button>
+                                        <button class="px-2 py-1 text-xs border rounded hover:border-primary transition-colors">18"</button>
+                                        <button class="px-2 py-1 text-xs border rounded hover:border-primary transition-colors">20"</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="price-animation">
+                                    <span class="text-2xl font-bold text-primary" x-text="currency === 'USD' ? '$299' : 'ZWL$254,150'"></span>
+                                    <span class="old-price text-lg text-gray-500 line-through ml-2" x-text="currency === 'USD' ? '$399' : 'ZWL$339,150'"></span>
+                                </div>
+                                <div class="text-sm text-green-600 font-medium">✅ In Stock</div>
+                            </div>
+                            
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-success text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center justify-center">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                    </svg>
+                                    WhatsApp
+                                </button>
+                                <button class="px-4 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m2.6 8l-2-8m2 8v4a1 1 0 001 1h8a1 1 0 001-1v-4m-10 0h10"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 product-card"
+                         :class="viewMode === 'list' ? 'flex' : ''"
+                         x-show="filters.category === 'all' || filters.category === 'bundles'"
+                         data-category="bundles" data-texture="straight" data-length="16,18,20" data-price="450">
+                        
+                        <div class="relative overflow-hidden" 
+                             :class="viewMode === 'list' ? 'w-1/3' : ''">
+                            <div class="aspect-w-1 aspect-h-1 bg-gradient-to-br from-amber-200 to-orange-200">
+                                <div class="flex items-center justify-center text-gray-500 h-80">
+                                    <span class="text-6xl">💇‍♀️</span>
+                                </div>
+                            </div>
+                            
+                            <div class="absolute top-4 left-4">
+                                <span class="badge premium">PREMIUM</span>
+                            </div>
+                            
+                            <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-50 transition-colors">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </button>
+                                <button @click="quickViewOpen = true; currentProduct = 'bundle-001'" 
+                                        class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-50 transition-colors">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6" :class="viewMode === 'list' ? 'w-2/3 flex flex-col justify-between' : ''">
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
+                                <span class="text-gray-600 text-sm ml-1">(203)</span>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Brazilian Straight Hair Bundles (3 Pack)</h3>
+                            <p class="text-gray-600 mb-4">3 bundles of premium Brazilian straight hair with natural shine and silky texture.</p>
+                            
+                            <div class="mb-4">
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="text-sm text-gray-500">Bundle Combo:</span>
+                                    <div class="flex gap-1">
+                                        <button class="px-2 py-1 text-xs bg-primary text-white rounded">16"-18"-20"</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mb-6">
+                                <div>
+                                    <span class="text-2xl font-bold text-primary" x-text="currency === 'USD' ? '$450' : 'ZWL$382,500'"></span>
+                                    <span class="text-lg text-gray-500 line-through ml-2" x-text="currency === 'USD' ? '$550' : 'ZWL$467,500'"></span>
+                                </div>
+                                <div class="text-sm text-green-600 font-medium">✅ In Stock</div>
+                            </div>
+                            
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-success text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center justify-center">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                    </svg>
+                                    WhatsApp
+                                </button>
+                                <button class="px-4 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m2.6 8l-2-8m2 8v4a1 1 0 001 1h8a1 1 0 001-1v-4m-10 0h10"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 product-card"
+                         :class="viewMode === 'list' ? 'flex' : ''"
+                         x-show="filters.category === 'all' || filters.category === 'frontals'"
+                         data-category="frontals" data-texture="straight" data-length="13x4,13x6" data-price="180">
+                        
+                        <div class="relative overflow-hidden" 
+                             :class="viewMode === 'list' ? 'w-1/3' : ''">
+                            <div class="aspect-w-1 aspect-h-1 bg-gradient-to-br from-blue-200 to-teal-200">
+                                <div class="flex items-center justify-center text-gray-500 h-80">
+                                    <span class="text-6xl">💄</span>
+                                </div>
+                            </div>
+                            
+                            <div class="absolute top-4 left-4">
+                                <span class="badge sale">18% OFF</span>
+                            </div>
+                            
+                            <div class="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <button class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-50 transition-colors">
+                                    <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                    </svg>
+                                </button>
+                                <button @click="quickViewOpen = true; currentProduct = 'frontal-001'" 
+                                        class="bg-white p-2 rounded-full shadow-lg hover:bg-gray-50 transition-colors">
+                                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6" :class="viewMode === 'list' ? 'w-2/3 flex flex-col justify-between' : ''">
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 text-sm">⭐⭐⭐⭐⭐</div>
+                                <span class="text-gray-600 text-sm ml-1">(89)</span>
+                            </div>
+                            
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">HD Transparent Lace Frontal 13x4</h3>
+                            <p class="text-gray-600 mb-4">HD transparent lace frontal for invisible hairline. Perfect for natural looks.</p>
+                            
+                            <div class="mb-4">
+                                <div class="flex flex-wrap gap-2 mb-3">
+                                    <span class="text-sm text-gray-500">Sizes:</span>
+                                    <div class="flex gap-1">
+                                        <button class="px-2 py-1 text-xs bg-primary text-white rounded">13x4</button>
+                                        <button class="px-2 py-1 text-xs border rounded hover:border-primary transition-colors">13x6</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mb-6">
+                                <div>
+                                    <span class="text-2xl font-bold text-primary" x-text="currency === 'USD' ? '$180' : 'ZWL$153,000'"></span>
+                                    <span class="text-lg text-gray-500 line-through ml-2" x-text="currency === 'USD' ? '$220' : 'ZWL$187,000'"></span>
+                                </div>
+                                <div class="text-sm text-green-600 font-medium">✅ In Stock</div>
+                            </div>
+                            
+                            <div class="flex gap-2">
+                                <button class="flex-1 bg-success text-white py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center justify-center">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                    </svg>
+                                    WhatsApp
+                                </button>
+                                <button class="px-4 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m2.6 8l-2-8m2 8v4a1 1 0 001 1h8a1 1 0 001-1v-4m-10 0h10"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More products would be added here -->
+                </div>
+
+                <!-- Load More / Pagination -->
+                <div class="text-center mt-12">
+                    <button class="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary-600 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        Load More Products
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div x-show="quickViewOpen" 
+         x-cloak
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         class="fixed inset-0 z-50 bg-black bg-opacity-50 flex items-center justify-center p-4"
+         @click.away="quickViewOpen = false">
+        
+        <div class="bg-white rounded-2xl max-w-6xl w-full max-h-90vh overflow-y-auto" @click.stop>
+            <div class="p-6 border-b flex items-center justify-between">
+                <h2 class="text-2xl font-bold">Quick View</h2>
+                <button @click="quickViewOpen = false" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+            </div>
+            
+            <div class="p-6 grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="aspect-w-1 aspect-h-1 bg-gradient-to-br from-purple-200 to-pink-200 rounded-lg">
+                        <div class="flex items-center justify-center text-gray-500 h-96">
+                            <span class="text-8xl">👩‍🦱</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Thumbnail Gallery -->
+                    <div class="flex gap-2 mt-4">
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg cursor-pointer border-2 border-primary"></div>
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg cursor-pointer"></div>
+                        <div class="w-20 h-20 bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg cursor-pointer"></div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mr-2 text-lg">⭐⭐⭐⭐⭐</div>
+                        <span class="text-gray-600">(127 reviews)</span>
+                    </div>
+                    
+                    <h1 class="text-3xl font-bold text-gray-800 mb-4">HD Lace Glueless Wig - Straight</h1>
+                    
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold text-primary">$299</span>
+                        <span class="text-xl text-gray-500 line-through ml-2">$399</span>
+                        <span class="bg-red-100 text-red-600 px-2 py-1 rounded-full text-sm font-semibold ml-2">25% OFF</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Premium HD lace glueless wig with natural hairline. 180% density Brazilian straight hair. Perfect for beginners with easy installation process.
+                    </p>
+                    
+                    <!-- Product Options -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Length</label>
+                            <div class="flex flex-wrap gap-2">
+                                <button class="px-4 py-2 border rounded-lg hover:border-primary transition-colors">16"</button>
+                                <button class="px-4 py-2 border border-primary bg-primary bg-opacity-10 text-primary rounded-lg">18"</button>
+                                <button class="px-4 py-2 border rounded-lg hover:border-primary transition-colors">20"</button>
+                                <button class="px-4 py-2 border rounded-lg hover:border-primary transition-colors">22"</button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Color</label>
+                            <div class="flex gap-2">
+                                <button class="w-8 h-8 bg-black rounded-full border-2 border-primary"></button>
+                                <button class="w-8 h-8 bg-gray-800 rounded-full border"></button>
+                                <button class="w-8 h-8 bg-yellow-900 rounded-full border"></button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Density</label>
+                            <select class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option>130% Density</option>
+                                <option>150% Density</option>
+                                <option selected>180% Density</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex gap-4">
+                            <button class="flex-1 bg-success text-white py-4 rounded-lg font-semibold hover:bg-green-600 transition-colors flex items-center justify-center">
+                                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.569-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                                Order via WhatsApp
+                            </button>
+                            <button class="px-6 py-4 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors">
+                                Add to Cart
+                            </button>
+                        </div>
+                        
+                        <!-- Product Features -->
+                        <div class="border-t pt-6">
+                            <h3 class="font-semibold mb-3">Product Features</h3>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> HD Lace for invisible hairline</li>
+                                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Glueless installation</li>
+                                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Pre-plucked hairline</li>
+                                <li class="flex items-center"><span class="text-green-500 mr-2">✓</span> Baby hair included</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Include same cart sidebar, mobile menu, and footer as index.html -->
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/whatsapp-cart.js"></script>
+    <script src="./assets/js/products.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>
