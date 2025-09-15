@@ -127,10 +127,10 @@ tailwind.config = {
 **Update phone numbers and contact details:**
 ```javascript
 // In whatsapp-cart.js
-this.phoneNumber = '263771234567'; // Your WhatsApp business number
+this.phoneNumber = '263719625789'; // Your WhatsApp business number
 
 // In all HTML files
-+263 77 123 4567    →    Your phone number
++263 71 962 5789    →    Your phone number
 hello@luxehairstudio.zw →    Your email
 123 Hair Street, Harare →    Your address
 ```
@@ -391,7 +391,7 @@ This template is provided as-is for educational and commercial use.
 
 For technical support or customization services:
 - Email: support@example.com
-- WhatsApp: +263 77 123 4567
+- WhatsApp: +263 71 962 5789
 - Website: www.example.com
 
 ---
